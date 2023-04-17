@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  booking-db:
+    image: postgres:14.7-alpine
+    container_name: booking-db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    volumes:
+      - ./Data/postgres:/var/lib/postgresql/data
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
+    command: -p ${DB_PORT}

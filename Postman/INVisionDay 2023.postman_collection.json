@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "ff0bd245-bb9d-4abb-860c-eadff7c38631",
+		"name": "INVisionDay 2023",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10316091"
+	},
+	"item": [
+		{
+			"name": "events",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{apiHost}}/events",
+					"host": [
+						"{{apiHost}}"
+					],
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bookings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{apiHost}}/bookings",
+					"host": [
+						"{{apiHost}}"
+					],
+					"path": [
+						"bookings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "events",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"INVisionDay 2023\",\n    \"description\": \"Der INVisionDay ist eine ganztägige Veranstaltung der Fakultät Informatik für die Studierenden der Fachrichtungen Informatik, Medieninformatik und Wirtschaftsinformatik.​Ziel des INVisionDay ist, dass die Studierenden – jenseits der Lehrinhalte aus den Vorlesungen und Übungen – einen Einblick in aktuelle IT-Themen aus der Forschung und der Unternehmenspraxis erhalten.​\",\n    \"date\": \"2023-04-26T14:00:00Z\",\n    \"info\": \"Indiana Codes und der heilige Gral der Softwareentwicklung - Workshop\",\n    \"maxParticipants\": 30,\n    \"replyAddress\": \"marcel.piontek@quanos.com\",\n    \"location\" : \"Technische Hochschule Nürnberg, Keßlerplatz 12, 90489 Nürnberg\",\n    \"tags\": [\"code\", \"workshop\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{apiHost}}/events",
+					"host": [
+						"{{apiHost}}"
+					],
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users/authenticate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{apiHost}}/users/authenticate",
+					"host": [
+						"{{apiHost}}"
+					],
+					"path": [
+						"users",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "invisionDay2k23",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "bookAdmin",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

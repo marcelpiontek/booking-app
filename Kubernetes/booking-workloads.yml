@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: booking-app
+spec:
+  selector:
+    matchLabels:
+      app: booking-app
+  template:
+    metadata:
+      labels:
+        app: booking-app
+    spec:
+      containers:
+      - name: booking-app
+        image: booking-app
+        imagePullPolicy: Never
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "1000m"
+          limits:
+            memory: "1024Mi"
+            cpu: "1000m"
+        ports:
+        - containerPort: 8080
+        env:
+          - name: DB_SERVICE_NAME
+            value: "booking-postgres-db"
+          - name: DB_NAME
+            value: "booking"
+          - name: DB_USERNAME
+            value: "postgres"
+          - name: DB_PASSWORD
+            value: "invisionDay2k23"
+          - name: DEFAULT_BASIC_AUTH_USERNAME
+            value: "bookAdmin"
+          - name: DEFAULT_BASIC_AUTH_PASSWORD
+            value: "invisionDay2k23"
+          - name: DEFAULT_BASIC_AUTH_ROLE
+            value: "ADMIN_ROLE"
+          

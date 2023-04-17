@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: booking-postgres-db
+spec:
+  selector:
+    matchLabels:
+      app: booking-postgres-db
+  template:
+    metadata:
+      labels:
+        app: booking-postgres-db
+    spec:
+      containers:
+      - name: booking-postgres-db
+        image: postgres:14.7-alpine
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "1000m"
+          limits:
+            memory: "1024Mi"
+            cpu: "1000m"
+        ports:
+        - containerPort: 5432
+        env:
+          - name: POSTGRES_USER
+            value: "postgres"
+          - name: POSTGRES_PASSWORD
+            value: "invisionDay2k23"
+          - name: POSTGRES_DB
+            value: "booking"
+        volumeMounts:
+          - name: booking-postgres-db-persistent-storage
+            mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: booking-postgres-db-persistent-storage
+          persistentVolumeClaim:
+            claimName: booking-postgres-db-pvc
