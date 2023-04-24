@@ -39,4 +39,32 @@ spec:
             value: "invisionDay2k23"
           - name: DEFAULT_BASIC_AUTH_ROLE
             value: "ADMIN_ROLE"
-          
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: booking-fe
+spec:
+  selector:
+    matchLabels:
+      app: booking-fe
+  template:
+    metadata:
+      labels:
+        app: booking-fe
+    spec:
+      containers:
+        - name: booking-fe
+          image: booking-fe
+          imagePullPolicy: Never
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "1000m"
+            limits:
+              memory: "1024Mi"
+              cpu: "1000m"
+          ports:
+            - containerPort: 80
