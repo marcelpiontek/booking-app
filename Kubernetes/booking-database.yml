@@ -17,10 +17,10 @@ spec:
         resources:
           requests:
             memory: "512Mi"
-            cpu: "1000m"
+            cpu: "500m"
           limits:
             memory: "1024Mi"
-            cpu: "1000m"
+            cpu: "500m"
         ports:
         - containerPort: 5432
         env:
